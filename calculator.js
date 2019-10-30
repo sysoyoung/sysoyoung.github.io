@@ -72,60 +72,70 @@ function isLastCharRightB(){
 function foo0(){
     let from_id = document.getElementById("numb0").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);
 }
 
 function foo1(){
     let from_id = document.getElementById("numb1").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);
 }
 
 function foo2(){
     let from_id = document.getElementById("numb2").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);
 }
 
 function foo3(){
     let from_id = document.getElementById("numb3").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);
 }
 
 function foo4(){
     let from_id = document.getElementById("numb4").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);
 }
 
 function foo5(){
     let from_id = document.getElementById("numb5").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);
 }
 
 function foo6(){
     let from_id = document.getElementById("numb6").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);
 }
 
 function foo7(){
     let from_id = document.getElementById("numb7").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);
 }
 
 function foo8(){
     let from_id = document.getElementById("numb8").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);    
 }
 
 function foo9(){
     let from_id = document.getElementById("numb9").innerHTML;
     isLastCharRightB();
+    isLastPercent();
     addChar(from_id);    
 }
 
@@ -242,17 +252,15 @@ function isLastPercent(){
     let from_result = document.getElementById("result").innerHTML;
 
     if(from_result[from_result.length - 1] == '%'){
-        return true;
+        foo_multi();
     }
-    return false;
+    return;
 }
 
 function foo_dot(){
     let from_id = '.';
     signEqual(from_id);
-    if(isLastPercent()){
-        foo_multi();
-    }
+    isLastPercent();
     if(leftNoSignForDot()){
         addChar(from_id);
     }
