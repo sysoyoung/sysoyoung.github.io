@@ -1,40 +1,27 @@
 import {mainArr} from './figure.js';
-alert(1);
-mainMenu();
 
-function mainMenu(){
-    let modal = document.querySelector('.modal');
+let overlay = document.querySelector('.overlay');
+let modal = document.querySelector('.modal');
+let speed = 0;
 
-    modal.addEventListener('click', function (e){
-    
-        let overlay = document.querySelector('.overlay');
-        let speed = 0;
-    
-        if(e.target.classList.contains('easy')){
-            speed = 1000;
-        } else if(e.target.classList.contains('normal')){
-            speed = 700;
-        } else if(e.target.classList.contains('hard')){
-            speed = 400;
-        }
-    
-        if(e.target.classList.contains('button')){
-            modal.style.display = 'none';
-            overlay.style.display = 'none';
-            startGame();
-        }
-    })
-}
+modal.addEventListener('click', function (e){
+    if(e.target.classList.contains('easy')){
+        speed = 1000;
+    } else if(e.target.classList.contains('normal')){
+        speed = 700;
+    } else if(e.target.classList.contains('hard')){
+        speed = 400;
+    }
 
-let i = 0;
+    if(e.target.classList.contains('button')){
+        modal.style.display = 'none';
+        overlay.style.display = 'none';
+        startGame();
+    }
+})
 
 function startGame() {
-    createBoard();
-    currentFigure = numberOfCurrentFigure();
-    figureBody = createFigure(currentFigure);
-}
-    
-function createBoard(){
+
     let tetris = document.createElement('div');
     tetris.classList.add('tetris');
     
@@ -46,9 +33,10 @@ function createBoard(){
     
     let main = document.getElementsByClassName('main')[0];
     main.appendChild(tetris);
-
+    
     let excel = document.getElementsByClassName('excel');
-
+    let i = 0;
+    
     for (let y = 22; y > 0; y--) {
         for(let x = 1; x < 11; x++){
             excel[i].setAttribute('posX', x);
@@ -56,39 +44,35 @@ function createBoard(){
             i++; 
         }
     }
-}
     
     let x = 5;
-    let y = 15;
+    let y = 19;
     
+    let currentFigure = 0;
+    let figureBody = 0;
     let rotate = 1;
     
-    function addClass(action_class, figureBody){////////////////////////////////
+    function getRandom(){
+        let rand = Math.random() * (mainArr.length) - 0.5;
+        return  Math.round(rand);
+    }
+    
+    function addClass(action_class){
         for(let i = 0; i < figureBody.length; i++){
             figureBody[i].classList.add(`${action_class}`);
         }
     }
     
-    function removeClass(action_class, figureBody){///////////////////////
+    function removeClass(action_class){
         for(let i = 0; i < figureBody.length; i++){
             figureBody[i].classList.remove(`${action_class}`);
         }
     }
-
-    function numberOfCurrentFigure(){
-        let currentFigure = 0;
-        
-        let rand = Math.random() * (mainArr.length) - 0.5;
-        alert(1);
-        currentFigure = Math.round(rand);
-        
-        return currentFigure;
-    }
     
-    function createFigure(currentFigure){
-        let figureBody = 0;
+    function createFigure(){
+        currentFigure = getRandom();
         rotate = 1;
-        
+    
         figureBody = [
             document.querySelector(`[posX = "${x}"][posY = "${y}"]`),
             document.querySelector(`[posX = "${x + mainArr[currentFigure][0][0]}"][posY = "${y + mainArr[currentFigure][0][1]}"]`),
@@ -96,26 +80,16 @@ function createBoard(){
             document.querySelector(`[posX = "${x + mainArr[currentFigure][2][0]}"][posY = "${y + mainArr[currentFigure][2][1]}"]`),
         ];
     
-        addClass('figure', figureBody);
-
-        return figureBody;
+        addClass('figure');
     }
 
-    /////////////////////////////////////
-    function createScore(){
-        let input = document.getElementsByTagName('input')[0];
-        input.value = `Score: 0`;
-
-        return input;
-    }
-    ///////////////////////////////////
-    function increaseScore(input){
-        score += 10;
-        input.value = `Score: ${score}`;
-    }
-    //////////////////////////////
-
-    function figureFall(figureBody){
+    createFigure();
+    
+    let score = 0;
+    let input = document.getElementsByTagName('input')[0];
+    input.value = `Score: ${score}`;
+    
+    function figureFall(){
 
         let mooveFlag = true;
         let coordinates = [
@@ -148,63 +122,66 @@ function createBoard(){
         }else{
             removeClass('figure');
             addClass('set');
-            
-            searchFullSetRowAndDelete();
-///////////////////////// end game
-            for(let i = 1; i < 11; i++){
-                if(document.querySelector(`[posX = "${i}"][posY = "19"]`).classList.contains('set')){
-                    clearInterval(interval);
-                    alert('lol cheburek');
-                    break;
-                }
-            }
-
-            createFigure();
-
-
-        }
-    }
-    
-
-    function searchFullSetRowAndDelete(){
-        for(let i = 1; i < 19; i++){
-            let count = 0;
-            for(let k = 1; k < 11; k++){
-                if(document.querySelector(`[posX = "${k}"][posY = "${i}"]`).classList.contains('set')){
-                    count++;
-                    if(count == 10){
-///////////////////////////// score
-                        increaseScore(10);
-////////////////////////////
-                        setCellFall(i);
-                        i--;
+            for(let i = 1; i < 19; i++){
+                let count = 0;
+                for(let k = 1; k < 11; k++){
+                    if(document.querySelector(`[posX = "${k}"][posY = "${i}"]`).classList.contains('set')){
+                        count++;
+                        if(count == 10){
+                            score += 10;
+                            input.value = `Score: ${score}`;
+                            for(let m = 1; m < 11; m++){
+                                document.querySelector(`[posX = "${m}"][posY = "${i}"]`).classList.remove('set')
+                            }
+                            let set = document.querySelectorAll('.set');
+                            let newSet = [];
+                            for(let s = 0; s < set.length; s++){
+                                let setCoordinates = [set[s].getAttribute('posX'), set[s].getAttribute('posY')];
+                                if(setCoordinates[1] > i){
+                                    set[s].classList.remove('set');
+                                    newSet.push(document.querySelector(`[posX = "${setCoordinates[0]}"][posY = "${setCoordinates[1] - 1}"]`));
+                                }
+                            }
+                            for(let c = 0; c < newSet.length; c++){
+                                newSet[c].classList.add('set');
+                            }
+                            i--;
+                        }
                     }
                 }
             }
-        }
-    }
-
-    function setCellFall(fullRow){
-        for(let m = 1; m < 11; m++){
-            document.querySelector(`[posX = "${m}"][posY = "${fullRow}"]`).classList.remove('set');
-        }
-
-        let setFigure = document.querySelectorAll('.set');
-        let newSet = [];
-        for(let s = 0; s < setFigure.length; s++){
-            let setCoordinates = [setFigure[s].getAttribute('posX'), setFigure[s].getAttribute('posY')];
-            if(setCoordinates[1] > fullRow){
-                setFigure[s].classList.remove('set');
-                newSet.push(document.querySelector(`[posX = "${setCoordinates[0]}"][posY = "${setCoordinates[1] - 1}"]`));
+            for(let i = 1; i < 11; i++){
+                if(document.querySelector(`[posX = "${i}"][posY = "19"]`).classList.contains('set')){
+                    clearInterval(interval);
+                    return endGame();
+                }
             }
-        }
-
-        for(let m = 0; m < newSet.length; m++){
-            newSet[m].classList.add('set');
+            createFigure();
         }
     }
+    
+    function endGame(){
+        let end = document.querySelector('.endgame');
 
+        end.style.display = 'flex';
 
+        let lastScore = end.getElementsByClassName('qwer')[0];
+        lastScore.innerHTML = `Your score is ${score}`; 
+        
+        end.addEventListener('click', function (e){
+            if(e.target.classList.contains('restart')){
+                end.style.display = 'none';
+                modal.style.display = '';
+                overlay.style.display = '';
+                tetris.remove();
+                figureBody = null;
+            } else if(e.target.classList.contains('quit')){
+                window.close();
+            }
+        })
+    }
+
+    
 
     let interval = setInterval(() => {
         figureFall();
@@ -280,4 +257,5 @@ function createBoard(){
     
     })
     
-   
+    
+}
