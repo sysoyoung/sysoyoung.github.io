@@ -43,7 +43,6 @@ body {
     opacity: 0.85;
 }
 
-
 .score {
     position: absolute;
     width: 200px;
@@ -132,7 +131,6 @@ body {
     width: 400px;
     height: 150px;
     margin-top: -40px;
-    
 }
 
 .quit {
@@ -140,7 +138,6 @@ body {
     width: 200px;
     height: 100px;
     margin-top: 20px;
-  
 }
 
 .endgame>button {
@@ -151,7 +148,6 @@ body {
 }
 
 .endgame>button:hover {
-    color: white;
-    text-shadow: 0 0 15px black, 0 0 15px black, 0 0 15px black, 0 0 15px black;
+    box-shadow: 0 0 15px red;
     transition: .3s;
 }
