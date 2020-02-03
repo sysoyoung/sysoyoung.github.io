@@ -1,0 +1,40 @@
+.indent {
+    position: relative;
+    display: block;
+    margin: 140px 0;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    color: #BF3330;
+}
+
+.contacts-block {
+    margin-top: 100px;
+    margin-right: 100px;
+}
+
+.contacts .phone {
+    margin-right: 0;
+    margin-bottom: 50px;
+}
+
+.contacts i {
+    font-size: 40px;
+}
+
+.fatter {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.googlemap {
+    border: 1px solid #A60400;
+    height: 60vh;
+}

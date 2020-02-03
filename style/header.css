@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: black;
+    background-color: whitesmoke;
+    font-size: 16px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 67px;
+    background-color: #006064;
+    border-bottom: 1px solid white;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+
+/* logo */
+
+header>a>img {
+    margin: 10px 15%;
+    width: 110px;
+}
+
+.maim-logo {
+    display: block;
+    height: 0;
+}
+
+
+/* menu */
+
+.dws-menu {
+    position: relative;
+    display: block;
+    top: -125px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.dws-menu ul {
+    list-style: none;
+}
+
+.dws-menu>ul {
+    display: flex;
+    justify-content: center;
+}
+
+.dws-menu>ul li a {
+    text-decoration: none;
+    display: block;
+    color: #FF4540;
+    font-size: 18px;
+    font-weight: 600;
+    height: 30px;
+}
+
+.dws-menu>ul>li {
+    position: relative;
+    padding-right: 15px;
+    margin-right: 15px;
+}
+
+.dws-menu>ul li:last-child {
+    border: none;
+}
+
+.dws-menu li a:hover {
+    text-decoration: overline;
+    transition: all 0.3s ease;
+}
+
+
+/* sub menu */
+
+.dws-menu li ul {
+    position: absolute;
+    width: 230px;
+    left: -40px;
+    top: 30px;
+    display: none;
+}
+
+.dws-menu li>ul li a {
+    padding: 10px;
+    text-transform: none;
+    background: #006064;
+}
+
+.dws-menu li:hover>ul {
+    display: block;
+}

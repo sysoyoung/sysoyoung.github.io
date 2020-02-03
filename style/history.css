@@ -1,0 +1,37 @@
+.indent {
+    position: relative;
+    top: 130px;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 250px;
+}
+
+.history {
+    display: flex;
+    flex-direction: row;
+}
+
+.history img {
+    width: 50%;
+    height: 80vh;
+}
+
+.text-history {
+    width: 45%;
+    margin-right: 5%;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.right {
+    margin-right: 0;
+    margin-left: 5%;
+}
+
+h1 {
+    border-bottom: 1px solid #BF3330;
+    padding-bottom: 7px;
+    font-weight: 600;
+}

@@ -1,0 +1,50 @@
+h1 {
+    margin-bottom: 100px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.indent {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 140px;
+}
+
+.event-item {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    margin-bottom: 60px;
+}
+
+.item-text {
+    width: 34%;
+    margin: 0 3%;
+}
+
+.right {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.event-item img {
+    width: 100%;
+    margin: -20% 0 0 0;
+}
+
+.image {
+    width: 100%;
+    height: 30vh;
+    overflow: hidden;
+}
