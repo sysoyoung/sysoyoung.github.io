@@ -47,7 +47,7 @@ h2 {
     width: 30%;
 }
 
-@media (max-width: 1024px) and (min-width: 1000px) {
+@media (max-width: 1024px) {
     .menu-item {
         margin-left: 25%;
     }
