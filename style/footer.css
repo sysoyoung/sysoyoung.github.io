@@ -11,7 +11,6 @@ footer {
     color: #FF4540;
     background: #006064;
     padding-bottom: 20px;
-    /* margin-top: 10px; */
     z-index: -2;
 }
 
@@ -76,4 +75,46 @@ footer .location div {
 
 .follow i {
     font-size: 20px;
+}
+
+@media (max-width: 700px) {
+    .footer-contacts {
+        flex-direction: column;
+    }
+    .phone {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .location {
+        margin-bottom: 10px;
+    }
+    .copyright {
+        width: 80%;
+    }
+}
+
+@media (max-width: 425px) {
+    .follow {
+        padding: 0;
+    }
+    .follow li:last-child {
+        border: none;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    .copyright {
+        width: 100%;
+    }
+}
+
+@media (max-width:350px) {
+    .follow li {
+        padding-right: 8px;
+        margin-right: 8px;
+    }
+    .follow li:last-child {
+        border: none;
+        padding-right: 0;
+        margin-right: 0;
+    }
 }

@@ -3,10 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../mini_logos/css/all.css" rel="stylesheet">
     <link href="../style/header.css" rel="stylesheet">
-    <link href="../style/cuisine.css" rel="stylesheet">
+    <link href="../style/reservation.css" rel="stylesheet">
     <link href="../style/footer.css" rel="stylesheet">
+    <script async src="../script/resrvation.js"></script>
     <title>Меню</title>
 </head>
 
@@ -14,7 +16,10 @@
     <header>
         <a href="../index.html"><img src="../img/main_logo.png" alt="main_logo"></a>
 
-        <nav class="dws-menu">
+        <nav class="main-menu">
+            <a href="#" class="menu-button" onclick="xmark()">
+                <span></span>
+            </a>
             <ul>
                 <li>
                     <a href="#">О НАС</a>
@@ -37,6 +42,110 @@
         </nav>
     </header>
 
+
+    <div class="indent">
+        <div class="select-date">
+            <div class="">
+                <label class="" for="resdate">Дата:</label>
+                <div class="">
+                    <input class="" id="resdate" type="date" name="" size="10">
+                </div>
+            </div>
+            <div class="">
+                <label class="" for="reshours">Время:</label>
+                <div class="">
+                    <select name="" class="" id="reshours">
+                    <optgroup class="" label="">
+                        <option value="12:0">12:00</option>
+                        <option value="13:0">13:00</option>
+                        <option value="14:0">14:00</option>
+                        <option value="15:0">15:00</option>
+                        <option value="16:0">16:00</option>
+                        <option value="17:0">17:00</option>
+                        <option value="18:0">18:00</option>
+                        <option value="19:0">19:00</option>
+                        <option value="20:0">20:00</option>
+                        <option value="21:0">21:00</option>
+                        <option value="22:0">22:00</option>
+                        <option value="23:0">23:00</option>
+                        <option value="24:0">24:00</option>
+                    </optgroup>
+                </select>
+                </div>
+            </div>
+            <div class="">
+                <label class="" for="resnumber">Количество мест:</label>
+                <div class="">
+                    <select class="" name="" id="resnumber">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+                </div>
+            </div>
+            <div class="">
+                <label class=""></label>
+                <button type="" class="" onclick="searchTable()">Найти столик</button>
+            </div>
+        </div>
+
+        <div class="scheme">
+            <img src="../img/reserv.png" alt="">
+            <button class="table1 table-size1" id="grey" number="1" onclick="selectTable(1)"></button>
+            <button class="table2 table-size1" id="grey" number="2" onclick="selectTable(2)"></button>
+            <button class="table3 table-size2" id="grey" number="3" onclick="selectTable(3)"></button>
+            <button class="table4 table-size2" id="grey" number="4" onclick="selectTable(4)"></button>
+            <button class="table5 table-size2" id="grey" number="5" onclick="selectTable(5)"></button>
+            <button class="table6 table-size2" id="grey" number="6" onclick="selectTable(6)"></button>
+            <button class="table7 table-size2" id="grey" number="7" onclick="selectTable(7)"></button>
+            <button class="table8 table-size3" id="grey" number="8" onclick="selectTable(8)"></button>
+            <button class="table9 table-size3" id="grey" number="9" onclick="selectTable(9)"></button>
+            <button class="table10 table-size3" id="grey" number="10" onclick="selectTable(10)"></button>
+            <button class="enter" onclick="confirmSelect()">Подтвердить</button>
+            <button class="back" onclick="back()">Назад</button>
+            <div class="table-number"></div>
+        </div>
+
+        <form action="" id="payform" name="" method="GET">
+            <div class="errormassage">111</div>
+            <div class="">
+                <div class="">
+
+                    <div>
+                        <input name="" type="text" placeholder="Имя" id="payname" value="" size="30" maxlength="20" class="">
+                    </div>
+
+                    <div>
+                        <input name="" type="text" placeholder="Фамилия" id="paylastname" value="" size="30" maxlength="20" class="">
+                    </div>
+                </div>
+
+                <div class="">
+                    <div>
+                        <input name="" type="email" placeholder="E-mail" id="payemail" value="" size="30" class="">
+                        </span>
+                    </div>
+
+                    <div>
+                        <input name="" type="tel" placeholder="+38(___)-___-__-__" id="paytel" value="" size="30" maxlength="15" class="">
+                    </div>
+                </div>
+            </div>
+
+            <button class="" type="button" id="" onclick="confirmPayment()">Подтвердите бронирование</button>
+        </form>
+        <button class="" type="button" id="" onclick="alertAll()">вывожу</button>
+        <button class="" type="button" id="" onclick="wash()">чищу вилкой</button>
+
+        <div class="success">
+            Стол забронирован.
+            <button class="" type="button" id="" onclick="onStart()">На начало</button>
+        </div>
+    </div>
 
 
     <footer>

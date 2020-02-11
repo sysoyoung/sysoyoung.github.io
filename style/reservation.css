@@ -1,0 +1,136 @@
+.indent {
+    position: relative;
+    margin: 300px;
+}
+
+.scheme {
+    margin: auto;
+    margin-top: 100px;
+    display: none;
+}
+
+.scheme button {
+    position: absolute;
+    background-color: transparent;
+}
+
+.scheme button:hover {
+    background-color: yellow;
+}
+
+.table-size1 {
+    height: 90px;
+    width: 50px;
+}
+
+.scheme .table1 {
+    margin-top: 240px;
+    margin-left: -756px;
+}
+
+.scheme .table2 {
+    margin-top: 335px;
+    margin-left: -756px;
+}
+
+.scheme .table-size2 {
+    height: 53px;
+    width: 102px;
+}
+
+.scheme .table3 {
+    margin-top: 187px;
+    margin-left: -420px;
+}
+
+.scheme .table4 {
+    margin-top: 187px;
+    margin-left: -316px;
+}
+
+.scheme .table5 {
+    margin-top: 356px;
+    margin-left: -262px;
+}
+
+.scheme .table6 {
+    margin-top: 445px;
+    margin-left: -262px;
+}
+
+.scheme .table7 {
+    margin-top: 537px;
+    margin-left: -262px;
+}
+
+.scheme .table-size3 {
+    height: 53px;
+    width: 138px;
+    transform: rotate(50deg);
+}
+
+.scheme .table8 {
+    margin-top: 434px;
+    margin-left: -652px;
+}
+
+.scheme .table9 {
+    margin-top: 430px;
+    margin-left: -541px;
+}
+
+.scheme .table10 {
+    margin-top: 428px;
+    margin-left: -432px;
+}
+
+#red {
+    border: 2px solid red;
+}
+
+#green {
+    border: 2px solid green;
+}
+
+#grey {
+    border: none;
+}
+
+#grey:hover {
+    background-color: transparent;
+}
+
+#selected {
+    background-color: green !important;
+}
+
+.enter {
+    margin-left: -97px;
+    margin-top: 755px;
+}
+
+.back {
+    margin-left: -840px;
+    margin-top: 755px;
+}
+
+.table-number {
+    display: none;
+    background-color: yellowgreen;
+    height: 50px;
+    width: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+#payform {
+    display: none;
+}
+
+.errormassage {
+    display: none;
+}
+
+.success {
+    display: none;
+}

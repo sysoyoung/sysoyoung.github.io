@@ -20,38 +20,45 @@ header {
 
 /* logo */
 
-header>a>img {
-    margin: 10px 15%;
+header>a {
+    display: block;
     width: 110px;
+    height: 110px;
+    margin: 10px 10%;
+    border-radius: 50%;
 }
 
-.maim-logo {
-    display: block;
-    height: 0;
+header>a>img {
+    width: 100%;
+    border-radius: 50%;
 }
 
 
 /* menu */
 
-.dws-menu {
-    position: relative;
-    display: block;
-    top: -125px;
-    height: 40px;
-    margin: 0;
-    padding: 0;
+.menu-button {
+    display: none;
 }
 
-.dws-menu ul {
+.main-menu {
+    position: relative;
+    display: block;
+    top: -110px;
+    height: 40px;
+    width: 54%;
+    margin-left: 23%;
+}
+
+.main-menu ul {
     list-style: none;
 }
 
-.dws-menu>ul {
+.main-menu>ul {
     display: flex;
     justify-content: center;
 }
 
-.dws-menu>ul li a {
+.main-menu>ul li a {
     text-decoration: none;
     display: block;
     color: #FF4540;
@@ -60,25 +67,24 @@ header>a>img {
     height: 30px;
 }
 
-.dws-menu>ul>li {
+.main-menu>ul>li {
     position: relative;
     padding-right: 15px;
     margin-right: 15px;
 }
 
-.dws-menu>ul li:last-child {
+.main-menu>ul li:last-child {
     border: none;
 }
 
-.dws-menu li a:hover {
+.main-menu li a:hover {
     text-decoration: overline;
-    transition: all 0.3s ease;
 }
 
 
 /* sub menu */
 
-.dws-menu li ul {
+.main-menu li ul {
     position: absolute;
     width: 230px;
     left: -40px;
@@ -86,12 +92,101 @@ header>a>img {
     display: none;
 }
 
-.dws-menu li>ul li a {
+.main-menu li>ul li a {
     padding: 10px;
     text-transform: none;
     background: #006064;
 }
 
-.dws-menu li:hover>ul {
-    display: block;
+@media (min-width: 800px) {
+    .main-menu li:hover>ul {
+        display: block;
+    }
 }
+
+@media (max-width: 1024px) {
+    header>a {
+        margin: 10px 3%;
+    }
+    .main-menu {
+        width: 70%;
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 800px) {
+    header {
+        position: absolute;
+        height: 110px;
+    }
+    header>a {
+        display: block;
+        width: 90px;
+        height: 90px;
+        right: 0;
+        margin-left: 80%;
+        margin-top: 10px;
+        /* margin: 10px 10%; */
+        border-radius: 50%;
+    }
+    .main-menu ul {
+        display: none;
+    }
+    .menu-button {
+        display: block;
+        margin-left: -100px;
+        margin-top: 25px;
+        width: 80px;
+        height: 80px;
+        position: relative;
+        text-align: center;
+        border: 1px solid #A60400;
+    }
+    .menu-button span,
+    .menu-button span::before,
+    .menu-button span::after {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        margin-top: -2px;
+        height: 4px;
+        margin-left: -20px;
+        background-color: #FF0700;
+    }
+    .menu-button span::before,
+    .menu-button span::after {
+        content: '';
+        transition: 0.5s;
+    }
+    .menu-button span::before {
+        transform: translateY(-10px);
+    }
+    .menu-button span::after {
+        transform: translateY(10px);
+    }
+    .menu-button_active span {
+        height: 0;
+    }
+    .menu-button_active span::before {
+        transform: rotate(45deg);
+    }
+    .menu-button_active span::after {
+        transform: rotate(-45deg);
+    }
+    .menu-button_active+ul {
+        transition: 0.5s;
+        display: block;
+        text-align: center;
+    }
+    .main-menu li ul {
+        position: relative;
+        display: none;
+        top: 0;
+        margin-left: 250px;
+    }
+    .main-menu li:hover>ul {
+        display: block;
+    }
+}
+
+@media (max-width: 425px) {}

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../mini_logos/css/all.css" rel="stylesheet">
     <link href="../style/header.css" rel="stylesheet">
     <link href="../style/contacts.css" rel="stylesheet">
@@ -14,7 +15,10 @@
     <header>
         <a href="../index.html"><img src="../img/main_logo.png" alt="main_logo"></a>
 
-        <nav class="dws-menu">
+        <nav class="main-menu">
+            <a href="#" class="menu-button" onclick="xmark()">
+                <span></span>
+            </a>
             <ul>
                 <li>
                     <a href="#">О НАС</a>
@@ -50,7 +54,7 @@
                     <div class="fatter">
                         Контакты
                     </div>
-                    <div class="lither">
+                    <div>
                         +38073 034 34 34
                     </div>
                 </div>
@@ -63,11 +67,29 @@
                     <div class="fatter">
                         Адрес
                     </div>
-                    <div class="lither">
+                    <div>
                         Киев, ул. Евгения Коновальца 15/2
                     </div>
                 </div>
+
+                <div class="location">
+                    <div class="icon">
+                        <i class="fas fa-calendar-alt"></i>
+                        <!-- calendar -->
+                    </div>
+                    <div class="fatter">
+                        Время работы
+                    </div>
+                    <div>
+                        Пн-Вс
+                    </div>
+                    <div>
+                        с 12:00 до 01:00
+                    </div>
+                </div>
             </div>
+
+
             <div class="googlemap">
                 <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
                     <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>

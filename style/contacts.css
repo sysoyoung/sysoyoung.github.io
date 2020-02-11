@@ -14,11 +14,11 @@
 }
 
 .contacts-block {
-    margin-top: 100px;
     margin-right: 100px;
 }
 
-.contacts .phone {
+.contacts .phone,
+.contacts .location {
     margin-right: 0;
     margin-bottom: 50px;
 }
@@ -37,4 +37,8 @@
 .googlemap {
     border: 1px solid #A60400;
     height: 60vh;
+}
+
+.lighter {
+    text-align: center;
 }

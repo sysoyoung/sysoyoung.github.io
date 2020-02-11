@@ -57,7 +57,7 @@ let multiItemSlider = (function() {
             _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
         }
 
-        _interval = setInterval(function() {
+        let _interval = setInterval(function() {
             _transformItem();
         }, 6000);
     }

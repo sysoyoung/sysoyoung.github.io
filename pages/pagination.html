@@ -8,14 +8,13 @@
     <link href="style/header.css" rel="stylesheet">
     <link href="style/slider.css" rel="stylesheet">
     <link href="style/footer.css" rel="stylesheet">
-    <script async src="script/slider.js"></script>
-    <script async src="script/burgermenu.js"></script>
+    <script async src="script/pagination.js"></script>
     <title>FoodCore</title>
 </head>
 
 <body>
     <header>
-        <a href="index.html"><img src="img/main_logo.png" alt="main_logo"></a>
+        <a href="index.html" class="main-logo"><img src="img/main_logo.png" alt="main_logo"></a>
 
         <nav class="main-menu">
             <a href="#" class="menu-button" onclick="xmark()">
@@ -43,23 +42,23 @@
         </nav>
     </header>
 
-    <div class="slider ">
-        <div class="slider__wrapper ">
-            <div class="slider__item ">
-                <img src="img/background_1.jpg " alt="background ">
+    <div class="indent">
+
+        <div class="pagination">
+
+            <div class="elements">
+
+
+
             </div>
-            <div class="slider__item ">
-                <img src="img/background_2.jpg " alt="background ">
-            </div>
-            <div class="slider__item ">
-                <img src="img/background_3.jpg " alt="background ">
-            </div>
+
+            <button class="" type="button" id="" onclick="next()">вперед</button>
+            <button class="" type="button" id="" onclick="prev()">назад</button>
         </div>
+
     </div>
 
-    <div class="logo ">
-        <img src="img/logo.png " alt="logo ">
-    </div>
+
 
     <footer>
         <div class="footer-contacts ">
@@ -88,7 +87,7 @@
                 </div>
             </div>
         </div>
-        <ul class="follow">
+        <ul class="follow ">
             <li><a href="# "><i class="fab fa-instagram "></i> instagram</a></li>
             <li>
                 <a href="# "><i class="fab fa-youtube "></i> youtube</a>
