@@ -1,12 +1,142 @@
 .indent {
-    position: relative;
-    margin: 300px;
+    height: 80vh;
+    margin-top: 270px;
+    margin-bottom: -249px;
+    top: 500px;
 }
 
-.scheme {
-    margin: auto;
-    margin-top: 100px;
+.indent .reserv-button {
+    min-width: 180px;
+    border: 1px solid #006064;
+    background: #FF4540;
+    padding: 8px;
+    border-radius: 7px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.indent .reserv-button:hover {
+    background: #FF7673;
+    color: #e5e5e5;
+}
+
+button:focus {
+    outline: none;
+}
+
+.select-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:823px) {
+    .indent {
+        margin-top: 150px;
+        margin-bottom: -129px;
+    }
+    .select-date {
+        flex-direction: column;
+    }
+    .wrapper {
+        margin-bottom: 30px;
+    }
+    .find-button-wrapper {
+        margin-left: -13px;
+    }
+}
+
+@media (max-width:425px) {
+    .indent {
+        margin-top: 100px;
+        margin-bottom: -79px;
+    }
+}
+
+.wrapper {
+    margin-right: 20px;
+    text-align: center;
+}
+
+.input-name {
+    color: grey;
+}
+
+input,
+select {
+    background-color: white;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    border-radius: 7px;
+    padding: 5px;
+    margin-top: 5px;
+    outline: none;
+    min-width: 150px;
+}
+
+.select-date select {
+    background: none;
+}
+
+.select-date input:focus,
+.select-date select:focus {
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75) inset;
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75) inset;
+}
+
+.find-button-wrapper {
+    margin-top: 26px;
+}
+
+
+/* схема ресторана */
+
+.scheme-wrapper-block {
     display: none;
+    position: relative;
+    left: 50%;
+    margin-left: -421px;
+    width: 843px;
+    margin-top: -150px;
+}
+
+@media (max-width: 843px) {
+    .scheme-wrapper-block {
+        left: 0;
+        margin-left: 0;
+        width: 100%;
+    }
+    .scheme-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    .scheme {
+        width: 843px;
+        height: 734px;
+    }
+}
+
+@media (max-width: 823px) {
+    .scheme-wrapper-block {
+        margin-top: -30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .scheme-wrapper {
+        height: 500px;
+    }
+}
+
+@media (max-width: 823px) {
+    .scheme-wrapper-block {
+        margin-top: -10px;
+    }
 }
 
 .scheme button {
@@ -15,7 +145,7 @@
 }
 
 .scheme button:hover {
-    background-color: yellow;
+    background-color: #61B4CF;
 }
 
 .table-size1 {
@@ -89,7 +219,7 @@
 }
 
 #green {
-    border: 2px solid green;
+    border: 2px solid #018b4f;
 }
 
 #grey {
@@ -101,26 +231,62 @@
 }
 
 #selected {
-    background-color: green !important;
+    background-color: #018b4f;
+    border: 2px solid #61B4CF;
 }
 
 .enter {
-    margin-left: -97px;
-    margin-top: 755px;
+    margin-top: 20px;
 }
 
 .back {
-    margin-left: -840px;
-    margin-top: 755px;
+    margin-left: 478px;
+    margin-top: 20px;
 }
 
 .table-number {
     display: none;
-    background-color: yellowgreen;
-    height: 50px;
-    width: 300px;
-    text-align: center;
+    background-color: #027d82;
+    height: 37px;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 165px;
     margin: auto;
+    border-radius: 20px;
+    color: #FF4540;
+    padding-top: 13px;
+    margin-top: 5px;
+    margin-bottom: -55px;
+}
+
+@media (max-width:843px) {
+    .back {
+        margin-left: 0;
+        float: right;
+    }
+}
+
+@media (max-width:700px) {
+    .enter,
+    .back {
+        margin-top: 70px;
+    }
+}
+
+@media (max-width:425px) {
+    .scheme-block-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .enter,
+    .back {
+        width: 180px;
+    }
+    .back {
+        margin-top: 30px;
+    }
 }
 
 #payform {
@@ -131,6 +297,125 @@
     display: none;
 }
 
+
+/* ввод данных */
+
+#payform {
+    margin-top: -150px;
+}
+
+.data-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.data-input input {
+    margin-bottom: 10px;
+    border: 1px solid #A60400;
+}
+
+.input-block {
+    margin-right: 50px;
+}
+
+.errormassage {
+    text-align: center;
+    color: red;
+    background-color: white;
+    border-radius: 20px;
+    width: 350px;
+    height: 30px;
+    padding-top: 6px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: -45px;
+}
+
+.confirm-button-wrapper {
+    width: 800px;
+    margin: auto;
+}
+
+.confirm-button {
+    margin-top: 20px;
+    margin-left: 574px;
+}
+
+.reserv-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    width: 800px;
+    height: 200px;
+    border: 1px solid #A60400;
+    border-radius: 5px;
+    background: white;
+}
+
+.info-block {
+    margin-right: 60px;
+}
+
+.date-info,
+.table-info {
+    margin-bottom: 40px;
+}
+
 .success {
     display: none;
+    width: 800px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.success-message {
+    /* margin-right: 150px; */
+    font-size: 18px;
+    color: green;
+}
+
+@media (max-width:823px) {
+    #payform {
+        margin-top: -30px;
+    }
+    .reserv-info {
+        flex-direction: column;
+        width: 100%;
+        border-left: none;
+    }
+    .date-info,
+    .table-info,
+    .time-info {
+        margin-bottom: 20px;
+    }
+    .info-block {
+        margin-right: 0;
+    }
+    .data-input {
+        flex-direction: column;
+    }
+    .input-block {
+        margin-right: 0;
+    }
+    .confirm-button-wrapper {
+        width: 100%;
+    }
+    .confirm-button {
+        float: right;
+        margin-left: 0;
+    }
+    .success {
+        width: 100%;
+    }
+}
+
+@media (max-width:425px) {
+    #payform {
+        margin-top: -10px;
+    }
 }

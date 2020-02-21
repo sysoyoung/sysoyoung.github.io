@@ -1,7 +1,19 @@
-(function() {
+function createMap() {
+    let height = document.documentElement.clientHeight;
+    let width = document.documentElement.clientWidth;
+
+
+    if ((width <= 823 && height <= 600) || (width <= 500)) {
+        height = document.documentElement.clientHeight * 0.9;
+        width = document.documentElement.clientWidth;
+    } else {
+        height = document.documentElement.clientHeight * 0.6;
+        width = document.documentElement.clientWidth * 0.5;
+    }
+
     let setting = {
-        "height": document.documentElement.clientHeight * 0.6,
-        "width": document.documentElement.clientWidth * 0.5,
+        "height": height,
+        "width": width,
         "zoom": 17,
         "queryString": "ул. Евгения Коновальца, 15/2, Киев, Украина",
         "place_id": "EknRg9C7LiDQldCy0LPQtdC90LjRjyDQmtC-0L3QvtCy0LDQu9GM0YbQsCwgMTUvMiwg0JrQuNC10LIsINCj0LrRgNCw0LjQvdCwIjASLgoUChIJnwcPFBrP1EARFeS0FVYpUhgQDyoUChIJh6seFRrP1EARUF7Vs3jGvZQ",
@@ -22,4 +34,22 @@
     };
     let to = d.getElementsByTagName('script')[0];
     to.parentNode.insertBefore(s, to);
-})();
+}
+// изменение размера карты при изменении екрана
+function recreateMap() {
+
+    let height = document.documentElement.clientHeight;
+    let width = document.documentElement.clientWidth;
+
+    setInterval(function() {
+        if (height != document.documentElement.clientHeight || width != document.documentElement.clientWidth) {
+            let oldMap = document.querySelector('iframe');
+            if (oldMap) {
+                oldMap.remove();
+                createMap();
+            }
+            height = document.documentElement.clientHeight;
+            width = document.documentElement.clientWidth;
+        }
+    }, 1000);
+}

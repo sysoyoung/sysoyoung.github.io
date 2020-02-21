@@ -8,13 +8,19 @@
     <link href="../style/header.css" rel="stylesheet">
     <link href="../style/history.css" rel="stylesheet">
     <link href="../style/footer.css" rel="stylesheet">
+    <script async src="../script/burgermenu.js"></script>
     <title>История</title>
+    <script>
+        window.onresize = function() {
+            changeHeader();
+        }
+    </script>
 </head>
 
 <body>
     <header>
         <a href="../index.html"><img src="../img/main_logo.png" alt="main_logo"></a>
-
+        <div class="whiteline"></div>
         <nav class="main-menu">
             <a href="#" class="menu-button" onclick="xmark()">
                 <span></span>
@@ -42,8 +48,6 @@
     </header>
 
     <div class="indent">
-
-
         <div class="history">
             <div class="text-history">
                 <h1>ИСТОРИЯ</h1>
@@ -51,33 +55,37 @@
                 уют и морскую стихию. Приглушенный свет, отраженный от металлических светильников, морская символика, деревянная крутая лестница на летнюю террасу, корабельные канаты и мягкие уютные кресла окружают Вас и дарят незабываемые ощущения близости
                 моря. В интерьере все продумано до мелочей и созданная атмосфера позволяет расслабиться и получить удовольствие от любого звука, шороха, аромата или блюда
             </div>
-            <img src="../img/history/history_1.jpg" alt="history picture">
+            <div class="image-block">
+                <img src="../img/history/history_1.jpg" alt="history picture">
+            </div>
+
 
         </div>
 
         <div class="history">
-            <img src="../img/history/history_2.jpg" alt="history picture">
+            <div class="image-block">
+                <img src="../img/history/history_2.jpg" alt="history picture">
+            </div>
             <div class="text-history right">
                 <h1>ТРАДИЦИИ</h1>
                 Мы любим творческие эксперименты, которые происходят от сочетания «высоких» и «низких» концепций продуктов питания. Недавно мы предложили «Ethan Special», основанный на обеде 10-летнего племянника Пола - белый хлеб, болонья, майонез, сыр с разбитым доритосом.
                 Мы предложили слегка увеличенную версию, включающую мортаделлу серого плюма, поданную с луком на луке ролл и - для тех, кто хотел именно «Этан Стиль» - Доритос на стороне ». Может быть, мы познакомим клиента с новым приготовлением пищи,
                 которое они не пробовали бы раньше. Может быть, мы удалим некоторые претензии, связанные с изысканным ужином. Или, может быть, мы просто оставим вас с полным животом и прекрасной памятью.
-
             </div>
         </div>
 
-        <div class="history">
-            <div class="text-history">
+        <div class="history last-block">
+            <div class="text-history ">
                 <h1>КУХНЯ</h1>
                 На кухне «правит» один из лучших шеф-поваров Украины, именитый Юрий Приемский. Как уточняет сам Юрий, к традиционной украинской кухне меню ресторана имеет косвенное отношение. Все блюда – авторские и гастрономические, созданные по принципу интересных
                 и сложных сочетаний ингредиентов. Каждый месяц меню обновляется, чтобы гости могли насладиться сезонными продуктами, которые опять же преподносятся нестандартно. Креативные подачи – конёк ресторана. Поэтому не удивляйтесь, если Ваше блюдо
                 будет преподнесено в дыму из сухого льда или приготовлено прямо при Вас!
             </div>
-            <img src="../img/history/history_3.jpg" alt="history picture">
+            <div class="image-block ">
+                <img src="../img/history/history_3.jpg" alt="history picture">
+            </div>
         </div>
     </div>
-
-
 
     <footer>
         <div class="footer-contacts">

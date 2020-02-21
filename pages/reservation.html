@@ -9,13 +9,23 @@
     <link href="../style/reservation.css" rel="stylesheet">
     <link href="../style/footer.css" rel="stylesheet">
     <script async src="../script/resrvation.js"></script>
+    <script async src="../script/burgermenu.js"></script>
     <title>Меню</title>
+    <script async>
+        window.onresize = function() {
+            changeHeader();
+            onResizeMarginBottom();
+        }
+        window.onload = function() {
+            createMarginBottom('date');
+        }
+    </script>
 </head>
 
 <body>
     <header>
         <a href="../index.html"><img src="../img/main_logo.png" alt="main_logo"></a>
-
+        <div class="whiteline"></div>
         <nav class="main-menu">
             <a href="#" class="menu-button" onclick="xmark()">
                 <span></span>
@@ -44,39 +54,40 @@
 
 
     <div class="indent">
+        <!-- время резервирования -->
         <div class="select-date">
-            <div class="">
-                <label class="" for="resdate">Дата:</label>
+            <div class="wrapper">
+                <label class="input-name" for="resdate">Дата:</label>
                 <div class="">
-                    <input class="" id="resdate" type="date" name="" size="10">
+                    <input class="reservation-date" id="resdate" type="date" name="" size="10">
                 </div>
             </div>
-            <div class="">
-                <label class="" for="reshours">Время:</label>
+            <div class="wrapper">
+                <label class="input-name" for="reshours">Время:</label>
                 <div class="">
-                    <select name="" class="" id="reshours">
+                    <select name="time" class="" id="reshours">
                     <optgroup class="" label="">
-                        <option value="12:0">12:00</option>
-                        <option value="13:0">13:00</option>
-                        <option value="14:0">14:00</option>
-                        <option value="15:0">15:00</option>
-                        <option value="16:0">16:00</option>
-                        <option value="17:0">17:00</option>
-                        <option value="18:0">18:00</option>
-                        <option value="19:0">19:00</option>
-                        <option value="20:0">20:00</option>
-                        <option value="21:0">21:00</option>
-                        <option value="22:0">22:00</option>
-                        <option value="23:0">23:00</option>
-                        <option value="24:0">24:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="24:00">24:00</option>
                     </optgroup>
                 </select>
                 </div>
             </div>
-            <div class="">
-                <label class="" for="resnumber">Количество мест:</label>
+            <div class="wrapper">
+                <label class="input-name" for="resnumber">Количество мест:</label>
                 <div class="">
-                    <select class="" name="" id="resnumber">
+                    <select class="" name="guests" id="resnumber">
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -87,66 +98,84 @@
                 </select>
                 </div>
             </div>
-            <div class="">
-                <label class=""></label>
-                <button type="" class="" onclick="searchTable()">Найти столик</button>
+            <div class="find-button-wrapper">
+                <button type="" class="reserv-button" onclick="searchTable()">Найти столик</button>
             </div>
         </div>
 
-        <div class="scheme">
-            <img src="../img/reserv.png" alt="">
-            <button class="table1 table-size1" id="grey" number="1" onclick="selectTable(1)"></button>
-            <button class="table2 table-size1" id="grey" number="2" onclick="selectTable(2)"></button>
-            <button class="table3 table-size2" id="grey" number="3" onclick="selectTable(3)"></button>
-            <button class="table4 table-size2" id="grey" number="4" onclick="selectTable(4)"></button>
-            <button class="table5 table-size2" id="grey" number="5" onclick="selectTable(5)"></button>
-            <button class="table6 table-size2" id="grey" number="6" onclick="selectTable(6)"></button>
-            <button class="table7 table-size2" id="grey" number="7" onclick="selectTable(7)"></button>
-            <button class="table8 table-size3" id="grey" number="8" onclick="selectTable(8)"></button>
-            <button class="table9 table-size3" id="grey" number="9" onclick="selectTable(9)"></button>
-            <button class="table10 table-size3" id="grey" number="10" onclick="selectTable(10)"></button>
-            <button class="enter" onclick="confirmSelect()">Подтвердить</button>
-            <button class="back" onclick="back()">Назад</button>
+        <!-- схема ресторана -->
+        <div class="scheme-wrapper-block">
+            <div class="scheme-wrapper">
+                <div class="scheme">
+                    <img src="../img/reserv.png" alt="scheme">
+                    <button class="table1 table-size1" id="grey" number="1" onclick="selectTable(1)"></button>
+                    <button class="table2 table-size1" id="grey" number="2" onclick="selectTable(2)"></button>
+                    <button class="table3 table-size2" id="grey" number="3" onclick="selectTable(3)"></button>
+                    <button class="table4 table-size2" id="grey" number="4" onclick="selectTable(4)"></button>
+                    <button class="table5 table-size2" id="grey" number="5" onclick="selectTable(5)"></button>
+                    <button class="table6 table-size2" id="grey" number="6" onclick="selectTable(6)"></button>
+                    <button class="table7 table-size2" id="grey" number="7" onclick="selectTable(7)"></button>
+                    <button class="table8 table-size3" id="grey" number="8" onclick="selectTable(8)"></button>
+                    <button class="table9 table-size3" id="grey" number="9" onclick="selectTable(9)"></button>
+                    <button class="table10 table-size3" id="grey" number="10" onclick="selectTable(10)"></button>
+                </div>
+            </div>
             <div class="table-number"></div>
+            <div class="scheme-block-button">
+                <button class="enter reserv-button" onclick="confirmSelect()">Продолжить</button>
+                <button class="back reserv-button" onclick="back()">Назад</button>
+            </div>
         </div>
 
+        <!-- ввод данных -->
         <form action="" id="payform" name="" method="GET">
-            <div class="errormassage">111</div>
-            <div class="">
-                <div class="">
+            <div class="reserv-info">
 
-                    <div>
-                        <input name="" type="text" placeholder="Имя" id="payname" value="" size="30" maxlength="20" class="">
-                    </div>
-
-                    <div>
-                        <input name="" type="text" placeholder="Фамилия" id="paylastname" value="" size="30" maxlength="20" class="">
-                    </div>
+                <div class="info-block">
+                    <div class="date-info"></div>
+                    <div class="time-info"></div>
                 </div>
 
                 <div class="">
+                    <div class="table-info"></div>
+                    <div class="cost-info"></div>
+                </div>
+
+            </div>
+            <div class="errormassage"></div>
+            <div class="data-input">
+                <div class="input-block">
                     <div>
-                        <input name="" type="email" placeholder="E-mail" id="payemail" value="" size="30" class="">
-                        </span>
+                        <input name="name" type="text" placeholder="Имя" id="payname" value="" size="30" maxlength="20" class="">
                     </div>
 
                     <div>
-                        <input name="" type="tel" placeholder="+38(___)-___-__-__" id="paytel" value="" size="30" maxlength="15" class="">
+                        <input name="lastname" type="text" placeholder="Фамилия" id="paylastname" value="" size="30" maxlength="20" class="">
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <input name="email" type="email" placeholder="E-mail" id="payemail" value="" size="30" class="">
+                    </div>
+
+                    <div>
+                        <input name="phone" type="tel" placeholder="+38(___)-___-__-__" id="paytel" value="" size="30" maxlength="15" class="">
                     </div>
                 </div>
             </div>
-
-            <button class="" type="button" id="" onclick="confirmPayment()">Подтвердите бронирование</button>
+            <div class="confirm-button-wrapper">
+                <button class="reserv-button confirm-button" type="button" id="" onclick="confirmPayment()">Подтвердить бронирование</button>
+            </div>
         </form>
-        <button class="" type="button" id="" onclick="alertAll()">вывожу</button>
-        <button class="" type="button" id="" onclick="wash()">чищу вилкой</button>
+        <!-- <button class="" type="button" id="" onclick="alertAll()">вывожу</button>
+        <button class="" type="button" id="" onclick="wash()">чищу вилкой</button> -->
 
+        <!-- подтверждение -->
         <div class="success">
-            Стол забронирован.
-            <button class="" type="button" id="" onclick="onStart()">На начало</button>
+            <div class="success-message">Стол забронирован.</div>
         </div>
     </div>
-
 
     <footer>
         <div class="footer-contacts">

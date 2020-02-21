@@ -1,14 +1,42 @@
+.all {
+    min-height: 90vh;
+}
+
 #slider {
     /*положение слайдера*/
-    position: relative;
+    position: absolute;
     text-align: center;
-    top: 170px;
+    top: 50%;
+    left: 50%;
 }
 
 #slider {
     /*центровка слайдера*/
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin-left: -350px;
+    margin-top: -250px;
     margin-bottom: 300px;
+}
+
+@media (max-width:1024px) {
+    .all {
+        /* margin-bottom: 300px; */
+        min-height: 70vh;
+    }
+    #slider {
+        position: relative;
+        /* top: 130px; */
+        left: 0;
+        margin: 0 auto;
+        margin-top: 30%;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 700px) and (max-height:400px) {
+    #slider {
+        margin-bottom: 100px;
+    }
 }
 
 #slides article {
@@ -41,6 +69,24 @@ article img {
     width: 300px;
     height: 300px;
     overflow: hidden;
+}
+
+@media (max-width: 540px) {
+    .image>article {
+        height: 250px;
+    }
+}
+
+@media (max-width: 450px) {
+    .image>article {
+        height: 200px;
+    }
+}
+
+@media (max-width: 350px) {
+    .image>article {
+        height: 182px;
+    }
 }
 
 #desktop:checked~#slider {
@@ -92,6 +138,31 @@ article img {
     display: block;
     height: 68px;
     width: 68px;
+}
+
+@media (max-width: 900px) {
+    #switch1:checked~#controls label:nth-child(8),
+    #switch2:checked~#controls label:nth-child(1),
+    #switch3:checked~#controls label:nth-child(2),
+    #switch4:checked~#controls label:nth-child(3),
+    #switch5:checked~#controls label:nth-child(4),
+    #switch6:checked~#controls label:nth-child(5),
+    #switch7:checked~#controls label:nth-child(6),
+    #switch8:checked~#controls label:nth-child(7) {
+        margin: 0 0 0 0;
+        margin-top: 180px;
+    }
+    #switch1:checked~#controls label:nth-child(2),
+    #switch2:checked~#controls label:nth-child(3),
+    #switch3:checked~#controls label:nth-child(4),
+    #switch4:checked~#controls label:nth-child(5),
+    #switch5:checked~#controls label:nth-child(6),
+    #switch6:checked~#controls label:nth-child(7),
+    #switch7:checked~#controls label:nth-child(8),
+    #switch8:checked~#controls label:nth-child(1) {
+        margin: 0 0 0 0;
+        margin-top: 180px;
+    }
 }
 
 label,

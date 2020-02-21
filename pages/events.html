@@ -8,13 +8,19 @@
     <link href="../style/header.css" rel="stylesheet">
     <link href="../style/events.css" rel="stylesheet">
     <link href="../style/footer.css" rel="stylesheet">
+    <script async src="../script/burgermenu.js"></script>
     <title>События</title>
+    <script async>
+        window.onresize = function() {
+            changeHeader();
+        }
+    </script>
 </head>
 
 <body>
     <header>
         <a href="../index.html"><img src="../img/main_logo.png" alt="main_logo"></a>
-
+        <div class="whiteline"></div>
         <nav class="main-menu">
             <a href="#" class="menu-button" onclick="xmark()">
                 <span></span>
@@ -41,52 +47,37 @@
         </nav>
     </header>
 
-
-
     <div class="indent">
-
         <div class="content">
             <h1>СОБЫТИЯ</h1>
-
             <div class="event-items">
-
                 <div class="item">
-
                     <div class="image"><img src="../img/events/event1.jpg" alt=""></div>
                     <div class="event-text">
                         <h2>Дегустация ОСОБЫХ УКРАИНСКИЙ ВИН</h2>
                         <div class="event-description">
-
                             Ресторан-салон "Софа" приглашает на серию сравнительных дегустаций изысканных украинских вин! <br> Романтическая дегустация на диване<br> 13 февраля 2020, в 17:00 <br> 599 гривен <br> На ваш выбор предлагается: Биссер "Колонист"
                             (игристое) + устрица с крыжовником <br> Совиньон Блан "Бейкушем" (белое сухое) + тыква / базилик / сыр / гибискус (тыква с козьим сыром, пудрой гибискуса и базиликовое маслом)<br> Тельтове куруку Гранд Резерв, Shabo (белое
                             сухое) + подушечка с щучьему икрой<br> Kharizma Don Alejandro (розовое сухое) + картофель / грибы / сметана (двойные вареники с пудрой из грибов)<br> Одесское черное "Колонист" (красное сухое) + сало в шоколаде<br>
-
-
                         </div>
                     </div>
                 </div>
 
                 <div class="item">
-
                     <div class="image"><img src="../img/events/event2.jpg" alt="" class="second-image"></div>
                     <div class="event-text">
                         <h2>шефский УЖИН</h2>
                         <div class="event-description">
-
                             Открываем сезон шефских ужинов 6 февраля в FoodCore!<br> Меню ужина: <br> Пухлые азиатские булочки бао с муссом из тунца<br> Морской еж с лаймом<br> Королевский краб, запеченный в соусе Бернез<br> Стейк миньон с американской
                             мраморной говядины Black Angus с перегорським трюфелем лимонный сорбет<br> Вино белое сухое Muscadet Sevre et Maine Sur Lie Vielles Vignes, Poiron Dabin, Франция<br> Когда: 6 февраля, 19:00<br> Где: Oxota na Ovets, ул. Воздвиженская,
                             10Б
                             <br> Количество мест ограничено<br> Стоимость: 1690 гривен<br> Детали: +38 067 406 41 56<br>
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 
     <footer>
         <div class="footer-contacts">

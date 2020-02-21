@@ -1,3 +1,9 @@
+h1 {
+    border-bottom: 1px solid #BF3330;
+    padding-bottom: 7px;
+    font-weight: 600;
+}
+
 .indent {
     position: relative;
     top: 130px;
@@ -9,11 +15,18 @@
 .history {
     display: flex;
     flex-direction: row;
+    height: 680px;
+}
+
+.image-block {
+    width: 50%;
+    height: 680px;
+    overflow: hidden;
 }
 
 .history img {
-    width: 50%;
-    height: 80vh;
+    min-width: 100%;
+    height: 100%;
 }
 
 .text-history {
@@ -30,8 +43,62 @@
     margin-left: 5%;
 }
 
-h1 {
-    border-bottom: 1px solid #BF3330;
-    padding-bottom: 7px;
-    font-weight: 600;
+@media (max-width:1024px) {
+    .text-history {
+        margin-right: 0;
+        width: 50%;
+    }
+    .right {
+        margin-left: 0;
+    }
+}
+
+@media (max-width:800px) {
+    .indent {
+        top: 60px;
+    }
+    .history {
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    .text-history {
+        color: white;
+        width: 70%;
+    }
+    h1 {
+        color: #FF4540;
+    }
+    .history img {
+        opacity: 0.3;
+    }
+    .image-block {
+        position: absolute;
+        width: 80%;
+        margin-top: 14%;
+        background-color: #014e51;
+        margin-left: auto;
+        overflow: hidden;
+        z-index: -1;
+    }
+}
+
+@media (max-width:550px) {
+    .image-block {
+        width: 100%;
+        margin-top: 20%;
+    }
+    .text-history {
+        padding-top: 10%;
+        width: 90%;
+    }
+}
+
+@media (max-width:400px) {
+    .image-block {
+        height: 720px;
+    }
+    .last-block {
+        margin-bottom: -85px;
+    }
 }

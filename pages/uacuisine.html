@@ -8,13 +8,19 @@
     <link href="../style/header.css" rel="stylesheet">
     <link href="../style/cuisine.css" rel="stylesheet">
     <link href="../style/footer.css" rel="stylesheet">
+    <script async src="../script/burgermenu.js"></script>
     <title>Меню</title>
+    <script async>
+        window.onresize = function() {
+            changeHeader();
+        }
+    </script>
 </head>
 
 <body>
     <header>
         <a href="../index.html"><img src="../img/main_logo.png" alt="main_logo"></a>
-
+        <div class="whiteline"></div>
         <nav class="main-menu">
             <a href="#" class="menu-button" onclick="xmark()">
                 <span></span>
@@ -45,8 +51,10 @@
         <div class="content">
             <h1>УКРАИНСКАЯ КУХНЯ</h1>
 
-            <div class="menu-item ">
-                <img src="../img/menu/ua/Borscht.jpg" alt="">
+            <div class="menu-item">
+                <div class="menu-image">
+                    <img src="../img/menu/ua/Borscht.jpg" alt="">
+                </div>
                 <div class="item-text">
                     <h2>БОРЩ</h2>
                     <div class="item-description">
@@ -62,11 +70,15 @@
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio aliquid ipsa eligendi quas impedit obcaecati odio similique temporibus harum veniam.
                     </div>
                 </div>
-                <img src="../img/menu/ua/mushroom_soup.jpg" alt="">
+                <div class="menu-image right-image">
+                    <img src="../img/menu/ua/mushroom_soup.jpg" alt="">
+                </div>
             </div>
 
             <div class="menu-item">
-                <img src="../img/menu/ua/duck.jpg" alt="">
+                <div class="menu-image">
+                    <img src="../img/menu/ua/duck.jpg" alt="">
+                </div>
                 <div class="item-text">
                     <h2>УТКА</h2>
                     <div class="item-description">
@@ -82,11 +94,16 @@
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio aliquid ipsa eligendi quas impedit obcaecati odio similique temporibus harum veniam.
                     </div>
                 </div>
-                <img src="../img/menu/ua/jarkoe.jpg" alt="">
+                <div class="menu-image right-image">
+                    <img src="../img/menu/ua/jarkoe.jpg" alt="">
+                </div>
             </div>
 
             <div class="menu-item">
-                <img src="../img/menu/ua/wareniki.jpg" alt="">
+                <div class="menu-image">
+                    <img src="../img/menu/ua/wareniki.jpg" alt="">
+                </div>
+
                 <div class="item-text">
                     <h2>ВАРЕНИКИ С ВИШНЕЙ</h2>
                     <div class="item-description">
@@ -102,7 +119,9 @@
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio aliquid ipsa eligendi quas impedit obcaecati odio similique temporibus harum veniam.
                     </div>
                 </div>
-                <img src="../img/menu/ua/blintzes.jpg" alt="">
+                <div class="menu-image right-image">
+                    <img src="../img/menu/ua/blintzes.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>

@@ -8,13 +8,19 @@
     <link href="../style/header.css" rel="stylesheet">
     <link href="../style/gallery.css" rel="stylesheet">
     <link href="../style/footer.css" rel="stylesheet">
+    <script async src="../script/burgermenu.js"></script>
     <title>Галерея</title>
+    <script async>
+        window.onresize = function() {
+            changeHeader();
+        }
+    </script>
 </head>
 
 <body>
     <header>
         <a href="../index.html"><img src="../img/main_logo.png" alt="main_logo"></a>
-
+        <div class="whiteline"></div>
         <nav class="main-menu">
             <a href="#" class="menu-button" onclick="xmark()">
                 <span></span>

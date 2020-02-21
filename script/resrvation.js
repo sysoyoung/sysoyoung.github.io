@@ -1,8 +1,9 @@
+// определение границ даты
 function dateScope() {
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
-    let day = now.getDate();
+    let day = now.getDate() + 1;
     let nextDate = new Date(year, month, day + 30);
 
     if (month < 10) month = '0' + month;
@@ -25,12 +26,47 @@ function dateScope() {
     document.getElementById('resdate').max = lastDay;
 }
 dateScope();
+// проверка на правильность введенной даты
+function dateCheck() {
+
+    let date = document.getElementById('resdate').value;
+
+    let arrDate = date.split('-');
+
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth();
+    let day = now.getDate();
 
 
+    if (arrDate[0] < year || arrDate[0] > year + 1) {
+        return false;
+    }
+    if (arrDate[1] < month || arrDate[1] > month + 1) {
+        return false;
+    }
+    if (arrDate[2] < day + 1 || arrDate[2] > day + 30) {
+        return false
+    }
+
+    return true;
+}
+//вывод схемы проверка на наличие столов
 function searchTable() {
 
-    let elem = document.querySelector('.scheme');
+    if (!dateCheck()) {
+
+        let date = document.getElementById('resdate');
+        date.style.border = '1px solid red'
+
+        setTimeout(() => date.removeAttribute('style'), 1000);
+        return;
+    }
+
+    let elem = document.querySelector('.scheme-wrapper-block');
     elem.style.display = 'block';
+
+    createMarginBottom('scheme');
 
     elem = document.querySelector('.select-date');
     elem.style.display = 'none';
@@ -47,9 +83,8 @@ function searchTable() {
     }
 
     capacity(reservation.guests);
-    //alert(localStorage.length)
 }
-
+// возвращает объект даты резервирования
 function getDateReservation() {
     let date = document.getElementById('resdate').value;
     hour = document.getElementById('reshours').value;
@@ -61,7 +96,7 @@ function getDateReservation() {
         guests: guests,
     }
 }
-
+// выбор стола и изменение его цвета
 function selectTable(number) {
 
     let elem = document.querySelector(`.table${number}`);
@@ -78,21 +113,21 @@ function selectTable(number) {
 
     let tableSelected = document.querySelector('.table-number');
     tableSelected.style.display = 'block';
-    tableSelected.innerHTML = `Вы выбрали стол номер: ${number}`;
+    tableSelected.innerHTML = `Вы выбрали стол №${number}`;
 }
-
+// изменение цвета на красный
 function resTable(table) {
     let elem = document.querySelector(`.table${table}`);
     elem.id = "red";
 }
-
+//изменение цвета на зеленый
 function allGreen() {
     for (let i = 1; i <= 10; i++) {
         let elem = document.querySelector(`.table${i}`);
         elem.id = "green";
     }
 }
-
+// проверка столов на вместимость
 function capacity(guests) {
     let tableCapacity = [2, 2, 5, 7, 6, 6, 6, 8, 8];
 
@@ -102,31 +137,55 @@ function capacity(guests) {
         }
     }
 }
-
+// кнопка назад
 function back() {
-    let elem = document.querySelector('.scheme');
+    let elem = document.querySelector('.scheme-wrapper-block');
     elem.style.display = 'none';
 
     elem = document.querySelector('.select-date');
-    elem.style.display = 'block';
+    elem.style.display = 'flex';
+
+    createMarginBottom('date');
 
     let tableSelected = document.querySelector('.table-number');
     tableSelected.style.display = 'none';
 }
-
+// кнопка подтверждения выбора стола
 function confirmSelect() {
     let selectedTable = document.querySelector('#selected');
     if (!selectedTable) {
         return;
     }
 
-    let elem = document.querySelector('.scheme');
+    let elem = document.querySelector('.scheme-wrapper-block');
     elem.style.display = 'none';
 
     elem = document.querySelector('#payform');
     elem.style.display = 'block';
-}
 
+    createMarginBottom('info');
+
+    displayInfo();
+}
+// вывод введенной ранее информации
+function displayInfo() {
+    let dateInfo = getDateReservation();
+    let selectedTable = document.querySelector('#selected');
+    let tableInfo = selectedTable.getAttribute('number');
+
+    let elem = document.querySelector('.date-info');
+    elem.innerHTML = `Дата:  ${dateInfo.date}`;
+
+    elem = document.querySelector('.time-info');
+    elem.innerHTML = `Время:  ${dateInfo.hour}`;
+
+    elem = document.querySelector('.table-info');
+    elem.innerHTML = `Стол:  №${tableInfo}`;
+
+    elem = document.querySelector('.cost-info');
+    elem.innerHTML = `Стоимость:  ${250*dateInfo.guests}грн.`;
+}
+// подтверждение введеной информации
 function confirmPayment() {
 
     let payInfo = getPaymentInfo();
@@ -153,7 +212,7 @@ function confirmPayment() {
 
     successMessage();
 }
-
+// проверка введенной информации
 function getPaymentInfo() {
     let name = document.querySelector('#payname').value;
     let lastname = document.querySelector('#paylastname').value;
@@ -187,20 +246,12 @@ function getPaymentInfo() {
         tel: tel,
     }
 }
-
+// вывод сообщения о успешном бронировании
 function successMessage() {
-    elem = document.querySelector('#payform');
+    elem = document.querySelector('.confirm-button');
     elem.style.display = 'none';
 
     elem = document.querySelector('.success');
-    elem.style.display = 'block';
-}
-
-function onStart() {
-    elem = document.querySelector('.success');
-    elem.style.display = 'none';
-
-    elem = document.querySelector('.select-date');
     elem.style.display = 'block';
 }
 
@@ -213,4 +264,60 @@ function alertAll() {
 
 function wash() {
     localStorage.clear();
+}
+// изменение отступа до футера
+function createMarginBottom(celector) {
+    let elem = document.querySelector('.indent');
+    let width = document.documentElement.clientWidth;
+    let height = document.documentElement.clientHeight;
+    if (celector === 'date') {
+
+        if (width > 823) {
+            elem.style.marginBottom = '-249px';
+        }
+        if (width <= 823 && width > 425) {
+            elem.style.marginBottom = '-149px';
+        }
+        if (width <= 425) {
+            elem.style.marginBottom = '-79px';
+        }
+        if ((width > height) && (height <= 823 && height > 320 && width > 425 && width < 823)) {
+            elem.style.marginBottom = '140px';
+        }
+    }
+    if (celector === 'scheme') {
+        elem.style.marginBottom = '250px';
+        if ((width > height) && (height <= 823 && height > 320 && width > 425 && width < 823)) {
+            elem.style.marginBottom = '640px';
+        }
+    }
+    if (celector === 'info') {
+        if (width > 823) {
+            elem.style.marginBottom = '-100px';
+        }
+        if (width <= 823 && width > 425) {
+            elem.style.marginBottom = '-20px';
+        }
+        if (width <= 425) {
+            elem.style.marginBottom = '0px';
+        }
+        if ((width > height) && (height <= 823 && height > 320 && width > 425 && width < 823)) {
+            elem.style.marginBottom = '255px';
+        }
+    }
+}
+// изменение отступа до футера при изменении екрана
+function onResizeMarginBottom() {
+    let elem = document.querySelector('.indent');
+    let margin = elem.style.marginBottom;
+
+    if (margin == '-79px' || margin == '140px') {
+        createMarginBottom('date');
+    }
+    if (margin == '250px' || margin == '640px') {
+        createMarginBottom('scheme');
+    }
+    if (margin == '0px' || margin == '255px') {
+        createMarginBottom('info');
+    }
 }

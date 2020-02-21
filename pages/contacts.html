@@ -8,13 +8,20 @@
     <link href="../style/header.css" rel="stylesheet">
     <link href="../style/contacts.css" rel="stylesheet">
     <link href="../style/footer.css" rel="stylesheet">
+    <script async src="../script/burgermenu.js"></script>
+    <script async src="../script/googlemap.js"></script>
+    <script async>
+        window.onresize = function() {
+            changeHeader();
+        }
+    </script>
     <title>Контакты</title>
 </head>
 
 <body>
     <header>
         <a href="../index.html"><img src="../img/main_logo.png" alt="main_logo"></a>
-
+        <div class="whiteline"></div>
         <nav class="main-menu">
             <a href="#" class="menu-button" onclick="xmark()">
                 <span></span>
@@ -41,9 +48,7 @@
         </nav>
     </header>
 
-
     <div class="indent">
-
         <div class="contacts">
             <div class="contacts-block">
                 <div class="phone">
@@ -89,16 +94,19 @@
                 </div>
             </div>
 
-
             <div class="googlemap">
                 <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
                     <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
-                    <script async src="../script/googlemap.js"></script>
+                    <script>
+                        window.onload = function() {
+                            createMap();
+                            recreateMap();
+                        }
+                    </script>
                     <a href="https://1map.com/ru/map-embed?embed_id=153409">1 Map</a></div>
             </div>
         </div>
     </div>
-
 
     <footer>
         <div class="footer-contacts">
